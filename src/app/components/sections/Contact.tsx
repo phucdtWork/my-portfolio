@@ -175,14 +175,14 @@ function Contact() {
                 name="user_name"
                 placeholder="Your name"
                 required
-                className="w-full p-3.5 bg-[var(--bg-secondary)] border border-solid border-[var(--border)] rounded-lg text-[var(--text-primary)] transition-all duration-300 focus:outline-none focus:border-[var(--accent)]"
+                className="w-full p-3.5 bg-(--bg-secondary) border border-solid border-(--border) rounded-lg text-(--text-primary) transition-all duration-300 focus:outline-none focus:border-[var(--accent)]"
               />
             </div>
 
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block mb-2 text-[var(--text-primary)] font-medium"
+                className="block mb-2 text-(--text-primary) font-medium"
               >
                 Email
               </label>
