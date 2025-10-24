@@ -12,16 +12,18 @@ function Skills() {
     triggerOnce: false,
   });
 
-  // Tạo array của animations với delay tăng dần
-  const skillAnimations = skillsData.map((_, index) =>
-    useAnimation({
+  const skillAnimations: ReturnType<typeof useAnimation>[] = [];
+
+  for (let i = 0; i < skillsData.length; i++) {
+    const anim = useAnimation({
       animationType: "fade-left",
       duration: 500,
-      delay: 100 + index * 150, // Mỗi card delay thêm 150ms
+      delay: 100 + i * 150,
       threshold: 0.2,
       triggerOnce: false,
-    })
-  );
+    });
+    skillAnimations.push(anim);
+  }
 
   const getCssVar = (title: string) => {
     switch (title) {

@@ -1,8 +1,9 @@
+import type { ComponentType, SVGProps } from "react";
 import { Code2, Server, Database, Hammer } from "lucide-react";
 
 interface Skill {
   title: string;
-  icon: any;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   items: string[];
 }
 

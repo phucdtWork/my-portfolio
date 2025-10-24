@@ -1,7 +1,6 @@
 "use client";
 
 import { certificatesData } from "@/data/certificates";
-import { skillsData } from "@/data/skills";
 import { useAnimation } from "@/hooks/useAnimation";
 
 function Certificates() {
@@ -12,16 +11,18 @@ function Certificates() {
     threshold: 0.2,
     triggerOnce: false,
   });
+  const skillAnimations: ReturnType<typeof useAnimation>[] = [];
 
-  const skillAnimations = certificatesData.map((_, index) =>
-    useAnimation({
+  for (let i = 0; i < certificatesData.length; i++) {
+    const anim = useAnimation({
       animationType: "fade-left",
       duration: 500,
-      delay: 100 + index * 150,
+      delay: 100 + i * 150,
       threshold: 0.2,
       triggerOnce: false,
-    })
-  );
+    });
+    skillAnimations.push(anim);
+  }
 
   return (
     <section id="certificates">

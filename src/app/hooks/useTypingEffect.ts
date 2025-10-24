@@ -22,8 +22,6 @@ export function useTypingEffect(
     pauseTime = 1000,
   } = options;
 
-  const texts = Array.isArray(text) ? text : [text];
-
   const [displayedText, setDisplayedText] = useState("");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -31,6 +29,7 @@ export function useTypingEffect(
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    const texts = Array.isArray(text) ? text : [text];
     let timeout: ReturnType<typeof setTimeout>;
     const currentText = texts[currentTextIndex] ?? "";
 
@@ -48,7 +47,6 @@ export function useTypingEffect(
     }
 
     if (!isDeleting) {
-      // Typing forward
       if (charIndex <= currentText.length - 1) {
         setDisplayedText(currentText.slice(0, charIndex));
         timeout = setTimeout(() => setCharIndex((c) => c + 1), speed);
@@ -78,7 +76,7 @@ export function useTypingEffect(
     charIndex,
     currentTextIndex,
     isDeleting,
-    texts,
+    text,
     speed,
     deleteSpeed,
     delay,
