@@ -20,13 +20,13 @@ function Education() {
   });
   return (
     <section id="education">
-      {/* <h2
+      <h2
         className="section-title"
         ref={animationTitle.ref}
         style={animationTitle.style}
       >
         Education
-      </h2> */}
+      </h2>
 
       <div
         ref={animationScale.ref}
