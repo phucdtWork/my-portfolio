@@ -11,7 +11,7 @@ function CertificateCard({
   cert: (typeof certificatesData)[0];
   index: number;
 }) {
-  const animation = useAnimation({
+  const animation = useAnimation<HTMLAnchorElement>({
     animationType: "fade-left",
     duration: 500,
     delay: 100 + index * 150,
@@ -91,7 +91,7 @@ function CertificateCard({
 
 // Main Certificates component
 function Certificates() {
-  const animationTitle = useAnimation({
+  const animationTitle = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,

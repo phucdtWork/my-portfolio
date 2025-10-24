@@ -16,7 +16,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useAnimation } from "@/hooks/useAnimation";
 
 function Hero() {
-  const animationR = useAnimation({
+  const animationR = useAnimation<HTMLDivElement>({
     animationType: "fade-right",
     duration: 600,
     delay: 300,

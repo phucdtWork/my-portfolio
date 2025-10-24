@@ -3,7 +3,7 @@
 import { useAnimation } from "@/hooks/useAnimation";
 
 function Education() {
-  const animationTitle = useAnimation({
+  const animationTitle = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,
@@ -11,7 +11,7 @@ function Education() {
     triggerOnce: false,
   });
 
-  const animationScale = useAnimation({
+  const animationScale = useAnimation<HTMLDivElement>({
     animationType: "scale-up",
     duration: 500,
     delay: 100,

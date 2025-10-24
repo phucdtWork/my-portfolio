@@ -4,7 +4,7 @@ import ProjectsCard from "../ui/ProjectCard";
 import { useAnimation } from "@/hooks/useAnimation";
 
 function Projects() {
-  const animationTitle = useAnimation({
+  const animationTitle = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,
@@ -12,7 +12,7 @@ function Projects() {
     triggerOnce: false,
   });
 
-  const animationLeft = useAnimation({
+  const animationLeft = useAnimation<HTMLDivElement>({
     animationType: "fade-left",
     duration: 500,
     delay: 100,
@@ -20,7 +20,7 @@ function Projects() {
     triggerOnce: false,
   });
 
-  const animationRight = useAnimation({
+  const animationRight = useAnimation<HTMLDivElement>({
     animationType: "fade-right",
     duration: 500,
     delay: 100,

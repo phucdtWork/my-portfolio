@@ -18,7 +18,9 @@ interface UseAnimationOptions {
   triggerOnce?: boolean;
 }
 
-export const useAnimation = (options: UseAnimationOptions = {}) => {
+export const useAnimation = <T extends HTMLElement>(
+  options: UseAnimationOptions = {}
+) => {
   const {
     animationType = "fade-in",
     duration = 500,
@@ -29,7 +31,7 @@ export const useAnimation = (options: UseAnimationOptions = {}) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const element = elementRef.current;

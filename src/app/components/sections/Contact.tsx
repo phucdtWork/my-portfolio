@@ -11,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 function Contact() {
   const [loading, setLoading] = useState(false);
 
-  const animationTitle = useAnimation({
+  const animationTitle = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,
@@ -19,7 +19,7 @@ function Contact() {
     triggerOnce: false,
   });
 
-  const animationForm = useAnimation({
+  const animationForm = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 200,
@@ -27,7 +27,7 @@ function Contact() {
     triggerOnce: false,
   });
 
-  const animationEmail = useAnimation({
+  const animationEmail = useAnimation<HTMLDivElement>({
     animationType: "fade-right",
     duration: 600,
     delay: 300,
@@ -35,7 +35,7 @@ function Contact() {
     triggerOnce: false,
   });
 
-  const animationPhone = useAnimation({
+  const animationPhone = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 400,
@@ -43,7 +43,7 @@ function Contact() {
     triggerOnce: false,
   });
 
-  const animationLocation = useAnimation({
+  const animationLocation = useAnimation<HTMLDivElement>({
     animationType: "fade-left",
     duration: 600,
     delay: 500,

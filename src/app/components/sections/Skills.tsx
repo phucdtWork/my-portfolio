@@ -11,7 +11,7 @@ function SkillCard({
   skill: (typeof skillsData)[0];
   index: number;
 }) {
-  const animation = useAnimation({
+  const animation = useAnimation<HTMLDivElement>({
     animationType: "fade-left",
     duration: 500,
     delay: 100 + index * 150,
@@ -67,7 +67,7 @@ function SkillCard({
 }
 
 function Skills() {
-  const animationTitle = useAnimation({
+  const animationTitle = useAnimation<HTMLDivElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,

@@ -3,7 +3,7 @@
 import { useAnimation } from "@/hooks/useAnimation";
 
 function Experience() {
-  const animation = useAnimation({
+  const animation = useAnimation<HTMLAnchorElement>({
     animationType: "fade-up",
     duration: 600,
     delay: 100,
