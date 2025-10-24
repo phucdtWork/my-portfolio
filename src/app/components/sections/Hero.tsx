@@ -90,6 +90,7 @@ function Hero() {
               variant="secondary"
               size={isDesktop ? "lg" : "md"}
               icon={<FaEnvelope />}
+              isNewTab={false}
               href="#contact"
             >
               Contact Me
