@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import Navigation from "@/components/layout/Navigation";
-// import Footer from "@/components/layout/Footer";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Doan Thanh Phuc - Full-stack Developer",
     description: "Portfolio showcasing my work as a Full-stack Developer",
-    url: "https://yourportfolio.com",
+    url: "http://localhost:3000",
     siteName: "Doan Thanh Phuc Portfolio",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/public/images/logo.svg",
         width: 1200,
         height: 630,
       },
@@ -36,9 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        {/* <Navigation /> */}
+        <Navigation />
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

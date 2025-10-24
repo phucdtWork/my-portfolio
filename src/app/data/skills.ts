@@ -1,28 +1,42 @@
-export interface Skill {
-  name: string;
-  level: "proficient" | "intermediate" | "familiar";
+import { Code2, Server, Database, Hammer } from "lucide-react";
+
+interface Skill {
+  title: string;
+  icon: any;
+  items: string[];
 }
 
-export const skills: Skill[] = [
-  // Proficient
-  { name: "JavaScript", level: "proficient" },
-  { name: "ReactJS", level: "proficient" },
-  { name: "HTML5", level: "proficient" },
-  { name: "CSS3", level: "proficient" },
-  { name: "Git", level: "proficient" },
-
-  // Intermediate
-  { name: "TypeScript", level: "intermediate" },
-  { name: "React Native", level: "intermediate" },
-  { name: "Node.js", level: "intermediate" },
-  { name: "Express.js", level: "intermediate" },
-  { name: "MongoDB", level: "intermediate" },
-  { name: "Tailwind CSS", level: "intermediate" },
-  { name: "SASS", level: "intermediate" },
-
-  // Familiar
-  { name: "GraphQL", level: "familiar" },
-  { name: "SQL Server", level: "familiar" },
-  { name: "Ant Design", level: "familiar" },
-  { name: "REST APIs", level: "familiar" },
+const skillsData: Skill[] = [
+  {
+    title: "Frontend",
+    icon: Code2,
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "ReactJS",
+      "React Native",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "SASS",
+      "Ant Design",
+    ],
+  },
+  {
+    title: "Backend",
+    icon: Server,
+    items: ["Node.js", "Express.js", "REST APIs"],
+  },
+  {
+    title: "Database",
+    icon: Database,
+    items: ["MongoDB", "SQL Server", "Firebase"],
+  },
+  {
+    title: "Tools & Platforms",
+    icon: Hammer,
+    items: ["GitHub", "Postman", "Figma", "Microsoft Office"],
+  },
 ];
+
+export { skillsData };
