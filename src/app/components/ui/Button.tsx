@@ -103,12 +103,14 @@ export default function Button({
     </>
   );
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => {
     if (isDisabled) {
       e.preventDefault();
       return;
     }
-    onClick?.();
+    onClick?.(e as React.MouseEvent<HTMLButtonElement>);
   };
 
   if (href) {
