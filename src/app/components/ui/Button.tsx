@@ -19,8 +19,8 @@ interface BaseButtonProps {
 
 // Button props (khi không có href)
 interface ButtonAsButton
-  extends BaseButtonProps,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseButtonProps>,
+    BaseButtonProps {
   href?: never;
   external?: never;
 }
