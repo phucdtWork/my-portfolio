@@ -34,10 +34,6 @@ Personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwin
 
 ![Screenshot](public/images/screenshot.png)
 
-### 💼 Projects Section
-
----
-
 ## ⚙️ Setup
 
 Clone this repository and install dependencies:
