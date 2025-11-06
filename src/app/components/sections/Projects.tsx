@@ -33,14 +33,14 @@ function Projects() {
       title: "Pago - Farm Management System",
       projectImage: "/images/projects/pago.jpg",
       projectContent:
-        "Developed cross-platform farm management application with ReactJS and React Native. Built purchase management, chatbot UI, and real-time sensor monitoring features.",
+        "Developed cross-platform farm management application with ReactJS and React Native. Built purchase management, chatbot UI, and real-time sensor monitoring features. Currently Pending - Under Review",
       role: "Front-end Developer",
       duration: "August 2024 - November 2024",
 
       techStack: ["ReactJS", "React Native", "TypeScript", "GraphQL"],
       links: [{ url: "#", label: "Proprietary Code", icon: "fas fa-eye" }],
       isPrivate: true,
-      demoUrl: "https://github.com/yourusername/boarding-house-management",
+      facebookLink: "https://www.facebook.com/PagoSolution.vn/",
     },
     {
       title: "Boarding House Management",
@@ -58,8 +58,7 @@ function Projects() {
         "Led 5-member team to build comprehensive boarding house management system using MERN stack. Designed architecture, developed reusable components, and delivered complete solution.",
       duration: "May 2025 - August 2025",
       isPrivate: false,
-      demoUrl: "https://github.com/yourusername/boarding-house-management",
-      githubLink: "https://github.com/yourusername/boarding-house-management",
+      githubLink: "https://github.com/Duycld03/Boarding-house-booking",
     },
   ];
 

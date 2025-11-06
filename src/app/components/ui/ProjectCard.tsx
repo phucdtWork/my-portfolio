@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import Image from "next/image";
 import Badge from "@/components/ui/Badge";
-import { FaGithub, FaEye } from "react-icons/fa";
+import { FaGithub, FaEye, FaFacebook } from "react-icons/fa";
 import Button from "./Button";
 
 interface Project {
@@ -16,6 +16,7 @@ interface Project {
   demoUrl?: string;
   githubLink?: string;
   isPrivate?: boolean;
+  facebookLink?: string;
 }
 
 interface ProjectCardProps {
@@ -72,8 +73,23 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
               </Button>
             )}
             {project?.githubLink && (
-              <Button variant="secondary" size="md" icon={<FaGithub />}>
+              <Button
+                variant="secondary"
+                href={project?.githubLink}
+                size="md"
+                icon={<FaGithub />}
+              >
                 GitHub
+              </Button>
+            )}
+            {project?.facebookLink && (
+              <Button
+                variant="secondary"
+                href={project?.facebookLink}
+                size="md"
+                icon={<FaFacebook />}
+              >
+                Linked link
               </Button>
             )}
           </div>

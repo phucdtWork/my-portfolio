@@ -48,8 +48,10 @@ function Navigation() {
   return (
     <nav>
       <div className="max-w-[1200px] px-8 mx-auto flex justify-between items-center">
-        <div className="logo">
-          <p className="text-2xl font-bold text-(--accent)"> {"<pD/>"} </p>
+        <div className="logo cursor-pointer">
+          <a href="#home" className="text-2xl font-bold text-(--accent)">
+            {"<pD/>"}
+          </a>
         </div>
         <ul
           className={cn(

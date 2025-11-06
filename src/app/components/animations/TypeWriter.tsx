@@ -43,7 +43,7 @@ export default function TypeWriter({
     <span className={cn("inline-block", className)}>
       {displayedText}
       {showCursor && (
-        <span className="animate-pulse inline-block ml-1 text-accent">
+        <span className="animate-pulse inline-block ml-1 text-(--accent)">
           {cursorChar}
         </span>
       )}
