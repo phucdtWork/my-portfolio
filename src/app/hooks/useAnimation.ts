@@ -37,14 +37,12 @@ export const useAnimation = <T extends HTMLElement>(
   // Using a WeakSet so entries are garbage-collected when elements are removed.
   // This module-level set persists until a full page reload, which matches the
   // requirement: don't replay animations unless the page is reloaded.
-  const animatedElements = (globalThis as any).__animatedElements as
-    | WeakSet<HTMLElement>
-    | undefined;
-  if (!animatedElements) {
-    (globalThis as any).__animatedElements = new WeakSet<HTMLElement>();
+  type AnimatedGlobal = { __animatedElements?: WeakSet<HTMLElement> };
+  const g = globalThis as unknown as AnimatedGlobal;
+  if (!g.__animatedElements) {
+    g.__animatedElements = new WeakSet<HTMLElement>();
   }
-  const playedSet = (globalThis as any)
-    .__animatedElements as WeakSet<HTMLElement>;
+  const playedSet = g.__animatedElements as WeakSet<HTMLElement>;
 
   useEffect(() => {
     const element = elementRef.current;
@@ -77,7 +75,7 @@ export const useAnimation = <T extends HTMLElement>(
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [threshold, triggerOnce, hasAnimated]);
+  }, [threshold, triggerOnce, hasAnimated, playedSet]);
 
   const getAnimationStyle = () => {
     const baseStyle = {

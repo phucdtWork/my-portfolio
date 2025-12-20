@@ -4,14 +4,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import TypeWriter from "@/components/animations/TypeWriter";
 import { personalInfo } from "@/data/personal";
-import {
-  FaDownload,
-  FaEnvelope,
-  FaGithub,
-  FaFacebook,
-  FaLinkedin,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaDownload, FaEnvelope, FaGithub, FaInstagram } from "react-icons/fa";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useAnimation } from "@/hooks/useAnimation";
 
