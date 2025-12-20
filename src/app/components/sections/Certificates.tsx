@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { certificatesData } from "@/data/certificates";
 import { useAnimation } from "@/hooks/useAnimation";
 import Tooltip from "../ui/Tooltip ";
+import { Pagination } from "antd";
+import "antd/dist/reset.css";
 
 function CertificateCard({
   cert,
@@ -26,15 +29,15 @@ function CertificateCard({
       href={cert.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl border border-slate-700 overflow-hidden transition-all duration-500 hover:border-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:-translate-y-2 h-full flex flex-col justify-between"
+      className="group relative bg-linear-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl border border-slate-700 overflow-hidden transition-all duration-500 hover:border-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:-translate-y-2 h-full flex flex-col justify-between"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="relative p-6 h-full flex flex-col justify-between z-10">
         <div>
-          <div className="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="w-12 h-12 mb-4 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -79,7 +82,7 @@ function CertificateCard({
         </div>
       </div>
 
-      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 right-0 w-20 h-20 bg-linear-to-br from-blue-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </a>
   );
 }
@@ -94,6 +97,12 @@ function Certificates() {
     triggerOnce: true,
   });
 
+  const [current, setCurrent] = useState<number>(1);
+  const pageSize = 6;
+  const startIndex = (current - 1) * pageSize;
+  const displayed = certificatesData.slice(startIndex, startIndex + pageSize);
+  const placeholdersCount = Math.max(0, pageSize - displayed.length);
+
   return (
     <section id="certificates">
       <h2
@@ -105,17 +114,38 @@ function Certificates() {
       </h2>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
-        {certificatesData.map((cert, index) => (
-          <Tooltip
-            key={index}
-            text="Click to view detail!"
-            position="top-left"
-            color="accent"
-            size="lg"
-          >
-            <CertificateCard cert={cert} index={index} />
-          </Tooltip>
+        {displayed.map((cert, idx) => {
+          const index = startIndex + idx;
+          return (
+            <Tooltip
+              key={index}
+              text="Click to view detail!"
+              position="top-left"
+              color="accent"
+              size="lg"
+            >
+              <CertificateCard cert={cert} index={index} />
+            </Tooltip>
+          );
+        })}
+
+        {Array.from({ length: placeholdersCount }).map((_, i) => (
+          <div
+            key={`ph-${i}`}
+            className="group relative bg-linear-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl border border-slate-700 overflow-hidden h-full flex flex-col justify-between invisible pointer-events-none"
+            aria-hidden
+          />
         ))}
+      </div>
+
+      <div className="mt-6 flex justify-center">
+        <Pagination
+          current={current}
+          pageSize={pageSize}
+          total={certificatesData.length}
+          onChange={(page) => setCurrent(page)}
+          showSizeChanger={false}
+        />
       </div>
     </section>
   );

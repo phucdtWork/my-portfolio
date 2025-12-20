@@ -33,16 +33,6 @@ function Hero() {
       icon: <FaGithub width={40} height={40} />,
     },
     {
-      href: "#",
-      title: "LinkedIn",
-      icon: <FaLinkedin width={40} height={40} />,
-    },
-    {
-      href: "https://www.facebook.com/phuc.oan.943252",
-      title: "Facebook",
-      icon: <FaFacebook width={40} height={40} />,
-    },
-    {
       href: "https://www.instagram.com/tphuc_doan/",
       title: "Ig",
       icon: <FaInstagram width={40} height={40} />,
