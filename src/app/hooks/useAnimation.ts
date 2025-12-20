@@ -32,23 +32,19 @@ export const useAnimation = <T extends HTMLElement>(
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<T>(null);
-
-  // Keep track of elements that already ran their animation during this page lifecycle.
-  // Using a WeakSet so entries are garbage-collected when elements are removed.
-  // This module-level set persists until a full page reload, which matches the
-  // requirement: don't replay animations unless the page is reloaded.
-  const animatedElements = (globalThis as any).__animatedElements as
-    | WeakSet<HTMLElement>
-    | undefined;
-  if (!animatedElements) {
-    (globalThis as any).__animatedElements = new WeakSet<HTMLElement>();
-  }
-  const playedSet = (globalThis as any)
-    .__animatedElements as WeakSet<HTMLElement>;
+  const elementAnimatedKey = "__animatedElements" as const;
+  type GlobalWithAnimated = typeof globalThis & {
+    [K in typeof elementAnimatedKey]?: WeakSet<HTMLElement>;
+  };
 
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
+
+    const g = globalThis as GlobalWithAnimated;
+    if (!g[elementAnimatedKey])
+      g[elementAnimatedKey] = new WeakSet<HTMLElement>();
+    const playedSet = g[elementAnimatedKey]!;
 
     if (playedSet.has(element)) {
       setIsVisible(true);
