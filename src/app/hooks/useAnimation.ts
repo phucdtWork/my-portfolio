@@ -33,9 +33,28 @@ export const useAnimation = <T extends HTMLElement>(
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<T>(null);
 
+  // Keep track of elements that already ran their animation during this page lifecycle.
+  // Using a WeakSet so entries are garbage-collected when elements are removed.
+  // This module-level set persists until a full page reload, which matches the
+  // requirement: don't replay animations unless the page is reloaded.
+  const animatedElements = (globalThis as any).__animatedElements as
+    | WeakSet<HTMLElement>
+    | undefined;
+  if (!animatedElements) {
+    (globalThis as any).__animatedElements = new WeakSet<HTMLElement>();
+  }
+  const playedSet = (globalThis as any)
+    .__animatedElements as WeakSet<HTMLElement>;
+
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
+
+    if (playedSet.has(element)) {
+      setIsVisible(true);
+      setHasAnimated(true);
+      return;
+    }
 
     if (hasAnimated && triggerOnce) return;
 
@@ -44,6 +63,7 @@ export const useAnimation = <T extends HTMLElement>(
         if (entry.isIntersecting) {
           setIsVisible(true);
           setHasAnimated(true);
+          playedSet.add(element);
           if (triggerOnce) {
             observer.disconnect();
           }
