@@ -21,10 +21,11 @@ export default function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1 bg-[rgba(59,130,246,0.1)] text-(--accent) rounded-full text-[0.85rem] transition-all duration-300",
+        "inline-flex items-center px-3 py-1 bg-[rgba(59,130,246,0.1)] text-(--accent) rounded-full text-[0.85rem] transition-all duration-300 max-w-[120px] truncate",
         sizes[size],
-        className
+        className,
       )}
+      title={String(children)}
     >
       {children}
     </span>

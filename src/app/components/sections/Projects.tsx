@@ -43,22 +43,35 @@ function Projects() {
       facebookLink: "https://www.facebook.com/PagoSolution.vn/",
     },
     {
-      title: "Boarding House Management",
-      projectImage: "/images/projects/bhManagement.png",
-      role: "Leader & Full-stack Developer",
-      techStack: ["React", "Node.js", "Express", "MongoDB"],
+      title: "Personal Project - Medical Appointment Booking",
+      projectImage: "/images/projects/Medibook.png",
+      role: "Full-stack Developer",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Firebase",
+        "Tailwind CSS",
+        "Express",
+      ],
       links: [
         {
-          url: "#",
-          label: "Demo Coming Soon",
+          url: "https://medical-appointment-booking-app-fro.vercel.app",
+          label: "Live Demo",
           icon: "fas fa-external-link-alt",
+        },
+        {
+          url: "https://github.com/phucdtWork/Medical-appointment-booking-app",
+          label: "GitHub",
+          icon: "fab fa-github",
         },
       ],
       projectContent:
-        "Led 5-member team to build comprehensive boarding house management system using MERN stack. Designed architecture, developed reusable components, and delivered complete solution.",
-      duration: "May 2025 - August 2025",
+        "Comprehensive full-stack medical appointment booking platform bridging patients and healthcare providers. Features real-time scheduling, AI-powered health insights, multi-language support, secure authentication, and an intuitive user interface for seamless healthcare management.",
+      duration: "December 2025 - January 2026",
       isPrivate: false,
-      githubLink: "https://github.com/Duycld03/Boarding-house-booking",
+      githubLink:
+        "https://github.com/phucdtWork/Medical-appointment-booking-app",
     },
   ];
 
