@@ -56,11 +56,6 @@ function Projects() {
       ],
       links: [
         {
-          url: "https://medical-appointment-booking-app-fro.vercel.app",
-          label: "Live Demo",
-          icon: "fas fa-external-link-alt",
-        },
-        {
           url: "https://github.com/phucdtWork/Medical-appointment-booking-app",
           label: "GitHub",
           icon: "fab fa-github",

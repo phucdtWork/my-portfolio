@@ -30,7 +30,6 @@ export const projects: Project[] = [
     description: "Led 5-member team to build comprehensive...",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     image: "/images/projects/boarding-1.jpg",
-    demoUrl: "https://your-demo-url.vercel.app",
     githubUrl: "https://github.com/yourname/boarding-house",
   },
 ];
